@@ -1,18 +1,22 @@
+import os
+import warnings
 from typing import Dict, Optional
 
 import finlab
 import pandas as pd
+from dotenv import load_dotenv
 from finlab import data
 from scripts.config import LOGGER
 
-from airflow.decorators import task
+warnings.filterwarnings("ignore")
 
 
-@task()
 def fetch_stock_data() -> Optional[Dict[str, pd.DataFrame]]:
     try:
+        load_dotenv(verbose=True)
+        API_KEY = os.getenv("API_KEY")
         LOGGER.info("Fetching stock data...")
-        finlab.login("dePgtQJeiMDnpsXPL6PVbLosfcgiY9dIuPf/ZMlnMWKSSpoYpaMUzHDq6l/qVbOz#vip_m")
+        finlab.login(API_KEY)
         stock_data = {
             "volume": data.get("price:成交股數"),
             "count": data.get("price:成交筆數"),

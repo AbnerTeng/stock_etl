@@ -1,0 +1,12 @@
+.env
+.venv
+airflow.db
+.ruff_cache
+airflow-webserver.pid
+airflow.cfg
+webserver_config.py
+logs/
+docker-compose.yaml
+__pycache__
+.DS_Store
+
