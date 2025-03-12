@@ -5,6 +5,10 @@ OUTPUT_DIR = "/home/abner/stock_weekly_update"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 
+CN_FOLDER_DIR = "/home/abner/cn_stock_monthly_update"
+os.makedirs(CN_FOLDER_DIR, exist_ok=True)
+
+
 LOG_FILE = "/home/abner/logs/stock_etl.log"
 os.makedirs(os.path.dirname(LOG_FILE), exist_ok=True)
 

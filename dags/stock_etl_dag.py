@@ -12,7 +12,7 @@ warnings.simplefilter("ignore", category=FutureWarning)
 default_args = {
     "owner": "sinopac",
     "depends_on_past": False,
-    "start_date": datetime(2025, 3, 6, 0, 0),
+    "start_date": datetime(2025, 3, 9, 0, 0),
     "email_on_failure": False,
     "email_on_retry": False,
     "retries": 1,
@@ -21,10 +21,10 @@ default_args = {
 
 
 with DAG(
-    "daily_stock_data_fetch",
+    "weekly_stock_data_fetch",
     default_args=default_args,
-    description="A DAG to fetch stock data daily and save to csv files",
-    schedule_interval="@daily",
+    description="A DAG to fetch stock data weekly and save to csv files",
+    schedule_interval="@weekly",
     catchup=False,
 ) as dag:
     process_task = PythonOperator(

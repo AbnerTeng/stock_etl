@@ -9,4 +9,4 @@ logs/
 docker-compose.yaml
 __pycache__
 .DS_Store
-
+*.gz
