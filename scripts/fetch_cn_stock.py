@@ -3,8 +3,8 @@ from typing import Literal
 import qlib
 from qlib.data import D
 
-from config import CN_FOLDER_DIR, LOGGER
-from constants import QLIB_DATA_DIR
+from scripts.config import CN_FOLDER_DIR, LOGGER
+from scripts.constants import QLIB_DATA_DIR
 
 
 def fetch_cn_stock(market: Literal["csi300", "csi500"]) -> None:
