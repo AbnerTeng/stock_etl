@@ -30,7 +30,7 @@ export PYTHONPATH=$PYTHONPATH:/path/to/your/airflow_project/scripts
 3. Initialize DB
 
 ```bash
-airflow init db
+airflow db init
 ```
 
 4. add user to apache-airflow and check if it works
@@ -46,9 +46,21 @@ airflow users create \
 	
 airflow users list
 ```
+5. Check if dags can be correctly import
 
-5. Run webserver & scheduler
+```bash
+airflow dags list-import-errors
+```
 
+If it returns `No data found`, then it's passed!
+
+If it turns out to have errors, debug it and sync the dags
+
+```bash
+airflow dags reserialize
+```
+
+6. Run webserver & scheduler
 ```bash
 airflow webserver -H 0.0.0.0 -p 8888
 airflow scheduler
